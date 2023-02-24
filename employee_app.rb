@@ -1,3 +1,9 @@
+# https://drive.google.com/file/d/1DBwethY2Ux8p8S-58DALn8apk9tQfR1i/view
+# Bonus: Use the tty-table gem
+# https://github.com/piotrmurach/tty-table
+# Bonus: Use the pstore library to save the data to a file
+# https://ruby-doc.org/stdlib-2.5.3/libdoc/pstore/rdoc/PStore.html
+
 # INITIAL EMPLOYEES
 entry1 = { id: 1, first_name: "Saron", last_name: "Yitbarek", salary: 100000, active: true }
 entry2 = { id: 2, first_name: "Majora", last_name: "Carter", salary: 70000, active: true }
@@ -31,7 +37,7 @@ puts "[C]reate [R]ead [U]pdate [D]elete [Q]uit: "
 user_entry = gets.chomp.upcase
 
 # CONDITIONAL FOR EACH OPTION
-if user_entry == "C"
+if user_entry == "C" # Create a new entry
   new_entry = {}
   puts "First Name: "
   first_name = gets.chomp
@@ -46,10 +52,10 @@ if user_entry == "C"
   new_entry[:active] = true
   new_employee = Employee.new(new_entry)
   employees << new_employee
-elsif user_entry == "R"
-elsif user_entry == "U"
-elsif user_entry == "D"
-elsif user_entry == "Q"
+elsif user_entry == "R" # Enter an employee id# and print their information
+elsif user_entry == "U" # Enter an employee id# and update their active status
+elsif user_entry == "D" # Enter an employee id# and delete their entry
+elsif user_entry == "Q" # Quit application
 else
 end
 
