@@ -1,6 +1,6 @@
 # INITIAL EMPLOYEES
-entry1 = { Xid: 1, first_name: "Saron", last_name: "Yitbarek", salary: 100000, active: true }
-entry2 = { id: 2, first_name: "Majora", last_name: "Carter", salary: 70000, active: false }
+entry1 = { id: 1, first_name: "Saron", last_name: "Yitbarek", salary: 100000, active: true }
+entry2 = { id: 2, first_name: "Majora", last_name: "Carter", salary: 70000, active: true }
 
 # EMPLOYEE CLASS
 class Employee
@@ -32,9 +32,25 @@ user_entry = gets.chomp.upcase
 
 # CONDITIONAL FOR EACH OPTION
 if user_entry == "C"
+  new_entry = {}
+  puts "First Name: "
+  first_name = gets.chomp
+  puts "Last Name: "
+  last_name = gets.chomp
+  puts "Salary: "
+  salary = gets.chomp.to_i
+  new_entry[:id] = employees.length + 1
+  new_entry[:first_name] = first_name
+  new_entry[:last_name] = last_name
+  new_entry[:salary] = salary
+  new_entry[:active] = true
+  new_employee = Employee.new(new_entry)
+  employees << new_employee
 elsif user_entry == "R"
 elsif user_entry == "U"
 elsif user_entry == "D"
 elsif user_entry == "Q"
 else
 end
+
+p employees
