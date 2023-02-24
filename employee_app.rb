@@ -53,10 +53,14 @@ if user_entry == "C" # Create a new entry
   new_employee = Employee.new(new_entry)
   employees << new_employee
 elsif user_entry == "R" # Enter an employee id# and print their information
+  puts "Enter Employee ID: "
+  entry_id = gets.chomp.to_i
+  puts "First Name: #{employees[entry_id - 1].first_name}"
+  puts "Last Name: #{employees[entry_id - 1].last_name}"
+  puts "Salary: $#{employees[entry_id - 1].salary}"
+  puts "Active?: #{employees[entry_id - 1].active}"
 elsif user_entry == "U" # Enter an employee id# and update their active status
 elsif user_entry == "D" # Enter an employee id# and delete their entry
 elsif user_entry == "Q" # Quit application
 else
 end
-
-p employees
