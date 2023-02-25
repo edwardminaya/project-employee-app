@@ -4,6 +4,11 @@
 # Bonus: Use the pstore library to save the data to a file
 # https://ruby-doc.org/stdlib-2.5.3/libdoc/pstore/rdoc/PStore.html
 
+# CREATE TABLE
+require "tty-table"
+header = ["ID", "FIRST NAME", "LAST NAME", "SALARY", "ACTIVE"]
+table = TTY::Table.new(header: header)
+
 # INITIAL EMPLOYEES
 entry1 = { id: 1, first_name: "Saron", last_name: "Yitbarek", salary: 100000, active: true }
 entry2 = { id: 2, first_name: "Majora", last_name: "Carter", salary: 70000, active: true }
@@ -25,14 +30,24 @@ end
 employee1 = Employee.new(entry1)
 employee2 = Employee.new(entry2)
 
-# ARRAY TO HOLD THE EMPLOYEE INSTANCES
+# PUT EMPLOYEES IN TABLE
 employees = []
 employees << employee1
 employees << employee2
-puts "EMPLOYEES (#{employees.length} TOTAL)"
-p employees
+employees.each do |employee|
+  array = []
+  array << employee.id
+  array << employee.first_name
+  array << employee.last_name
+  array << employee.salary
+  array << employee.active
+  table << array
+end
 
 while true
+  system "clear"
+  puts "EMPLOYEES (#{employees.length} TOTAL)"
+  puts table.render(:unicode)
   # FIRST PROMPT FOR EACH OPTION
   puts "[C]reate [R]ead [U]pdate [D]elete [Q]uit: "
   user_entry = gets.chomp.upcase

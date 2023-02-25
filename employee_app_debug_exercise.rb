@@ -47,7 +47,7 @@ while true
     employee = Employee.new(
       first_name: input_first_name,
       last_name: input_last_name,
-      salry: input_salary,
+      salary: input_salary,
       active: true,
     )
     database.transaction do
@@ -59,7 +59,7 @@ while true
     print "Employee id: "
     input_id = gets.chomp.to_i
     database.transaction do
-      employee = database[input]
+      employee = database[input_id]
       pp employee
       puts
       print "Press enter to continue"
@@ -82,7 +82,7 @@ while true
       employee.active = input_active
       database[input_id] = employee
     end
-  elsif input_choice = "d"
+  elsif input_choice == "d"
     puts "Delete employee"
     print "Enter employee id: "
     input_id = gets.chomp.to_i
