@@ -68,6 +68,13 @@ while true
     new_entry[:active] = true
     new_employee = Employee.new(new_entry)
     employees << new_employee
+    array = []
+    array << employees[-1].id
+    array << employees[-1].first_name
+    array << employees[-1].last_name
+    array << employees[-1].salary
+    array << employees[-1].active
+    table << array
   elsif user_entry == "R" # Enter an employee id# and print their information
     puts "Enter Employee ID: "
     entry_id = gets.chomp.to_i
